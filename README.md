@@ -6,8 +6,8 @@ AGNOS is the Ubuntu-based operating system for your [comma three devkit](https:/
 
 In order to put your device into fastboot mode:
 
-1. Connect power to the OBD-C port.
-2. Then, quickly connect the comma three to your computer using the USB-C port.
+1. Connect power to the OBD-C port (port 1).
+2. Then, quickly connect the comma three to your computer using the USB-C port (port 2).
 3. After a few seconds, the device should indicate it's in fastboot mode and show its serial number.
 
 ![](fastboot.jpg)

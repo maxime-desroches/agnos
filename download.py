@@ -42,12 +42,12 @@ def download_and_decompress(url, hash, filename):
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(description='Download AGNOS')
-  parser.add_argument('--devel', action='store_true',
-                      help='Download AGNOS version used in devel branch')
+  parser.add_argument('--master', action='store_true',
+                      help='Download AGNOS version used in the master branch')
 
   args = parser.parse_args()
-  if args.devel:
-    update_file = "devel.json"
+  if args.master:
+    update_file = "master.json"
   else:
     update_file = "release.json"
 

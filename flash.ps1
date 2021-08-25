@@ -24,4 +24,4 @@ Invoke-Expression "$($fastboot) format:ext4 userdata"
 Invoke-Expression "$($fastboot) format cache"
 Invoke-Expression "$($fastboot) continue"
 
-Write-Host -NoNewLine 'AGNOS flash successful.';
+Write-Host 'AGNOS flash successful.';

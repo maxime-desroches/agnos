@@ -24,6 +24,4 @@ Invoke-Expression "$($fastboot) format:ext4 userdata"
 Invoke-Expression "$($fastboot) format cache"
 Invoke-Expression "$($fastboot) continue"
 
-
-Write-Host -NoNewLine 'Press any key to continue...';
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+Write-Host -NoNewLine 'AGNOS flash successful.';

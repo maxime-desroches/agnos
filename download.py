@@ -5,6 +5,10 @@ import lzma
 import hashlib
 import argparse
 import requests
+import tempfile
+
+MASTER_MANIFEST = "https://raw.githubusercontent.com/commaai/openpilot/master/selfdrive/hardware/tici/agnos.json"
+RELEASE_MANIFEST = "https://raw.githubusercontent.com/commaai/openpilot/release3/selfdrive/hardware/tici/agnos.json"
 
 def download_and_decompress(url, hash, filename):
 
@@ -46,11 +50,11 @@ if __name__ == "__main__":
                       help='Download AGNOS version used in the master branch')
 
   args = parser.parse_args()
-  if args.master:
-    update_file = "master.json"
-  else:
-    update_file = "release.json"
 
-  update = json.load(open(update_file))
+  manifest = MASTER_MANIFEST if args.master else RELEASE_MANIFEST
+  r = requests.get(manifest)
+  r.raise_for_status()
+
+  update = json.loads(r.content.decode())
   for partition in update:
     download_and_decompress(partition['url'], partition['hash'], f"{partition['name']}.img")
